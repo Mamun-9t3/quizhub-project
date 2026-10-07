@@ -1,50 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register | QuizHub</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="navbar">
-    <div class="nav-inner">
-      <a class="brand" href="index.html">QuizHub</a>
-      <nav class="nav-links">
-        <a href="student/dashboard.html">Student</a>
-        <a href="admin/dashboard.html">Admin</a>
-        <a href="login.html">Login</a>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | QuizHub</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">QuizHub</a>
+        <nav class="nav-links">
+          <a href="student/dashboard.html">Student</a>
+          <a href="admin/dashboard.html">Admin</a>
+          <a href="login.html">Login</a>
+        </nav>
+      </div>
+    </header>
 
-  <main class="container narrow">
-    <div class="form-card">
-      <p class="eyebrow">ACCOUNT</p>
-      <h1>Create Account</h1>
+    <main class="container narrow">
+      <div class="form-card">
+        <p class="eyebrow">ACCOUNT</p>
+        <h1>Create Account</h1>
 
-      <form>
-        <label for="fullName">Full Name</label>
-        <input id="fullName" type="text" placeholder="Your full name">
-        <p id="nameError" class="error"></p>
+        <form>
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" placeholder="Your full name" />
+          <p id="nameError" class="error"></p>
 
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="student@example.com">
-        <p id="emailError" class="error"></p>
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="student@example.com" />
+          <p id="emailError" class="error"></p>
 
-        <label for="password">Password</label>
-        <input id="password" type="password" placeholder="At least 6 characters">
-        <p id="passwordError" class="error"></p>
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="At least 6 characters"
+          />
+          <p id="passwordError" class="error"></p>
 
-        <label for="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword" type="password" placeholder="Re-enter your password">
-        <p id="confirmError" class="error"></p>
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            id="confirmPassword"
+            type="password"
+            placeholder="Re-enter your password"
+          />
+          <p id="confirmError" class="error"></p>
 
-        <button class="button" type="button">Create Account</button>
-      </form>
+          <button class="button" type="button">Create Account</button>
+        </form>
 
-      <p id="formMessage" class="message"></p>
-    </div>
-  </main>
-</body>
+        <p id="formMessage" class="message"></p>
+      </div>
+    </main>
+  </body>
 </html>

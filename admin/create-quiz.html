@@ -1,68 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Quiz | QuizHub</title>
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-  <header class="navbar">
-    <div class="nav-inner">
-      <a class="brand" href="../index.html">QuizHub</a>
-      <nav class="nav-links">
-        <a href="../student/dashboard.html">Student</a>
-        <a href="dashboard.html">Admin</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="page-heading">
-      <div>
-        <p class="eyebrow">ADMIN PANEL</p>
-        <h1>Create Quiz</h1>
-        <p class="muted">Static preview of the quiz creation interface.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Quiz | QuizHub</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="../index.html">QuizHub</a>
+        <nav class="nav-links">
+          <a href="../student/dashboard.html">Student</a>
+          <a href="dashboard.html">Admin</a>
+        </nav>
       </div>
-      <a class="button secondary" href="dashboard.html">Back to Dashboard</a>
-    </div>
+    </header>
 
-    <div class="form-card">
-      <label>Quiz title</label>
-      <input value="JavaScript Basics" readonly>
-
-      <label>Category</label>
-      <input value="Programming" readonly>
-
-      <label>Description</label>
-      <textarea rows="4" readonly>Test your understanding of JavaScript fundamentals.</textarea>
-
-      <label>Duration (minutes)</label>
-      <input value="10" readonly>
-
-      <button class="button" type="button">Save Quiz</button>
-    </div>
-
-    <section class="question-builder">
-      <div class="section-heading">
+    <main class="container">
+      <div class="page-heading">
         <div>
-          <h2>Questions</h2>
-          <p class="muted">Static example of the question builder.</p>
+          <p class="eyebrow">ADMIN PANEL</p>
+          <h1>Create Quiz</h1>
+          <p class="muted">Static preview of the quiz creation interface.</p>
         </div>
-        <button class="button secondary" type="button">+ Add Question</button>
+        <a class="button secondary" href="dashboard.html">Back to Dashboard</a>
       </div>
 
-      <div class="question-list">
-        <div class="question-item">
-          <h3>Question 1: Which keyword declares a variable that can be reassigned?</h3>
-          <p>1. const</p>
-          <p>2. let</p>
-          <p>3. static</p>
-          <p>4. define</p>
-          <p><strong>Correct answer:</strong> Option 2</p>
-        </div>
+      <div class="form-card">
+        <label>Quiz title</label>
+        <input value="JavaScript Basics" readonly />
+
+        <label>Category</label>
+        <input value="Programming" readonly />
+
+        <label>Description</label>
+        <textarea rows="4" readonly>
+Test your understanding of JavaScript fundamentals.</textarea
+        >
+
+        <label>Duration (minutes)</label>
+        <input value="10" readonly />
+
+        <button class="button" type="button">Save Quiz</button>
       </div>
-    </section>
-  </main>
-</body>
+
+      <section class="question-builder">
+        <div class="section-heading">
+          <div>
+            <h2>Questions</h2>
+            <p class="muted">Static example of the question builder.</p>
+          </div>
+          <button class="button secondary" type="button">+ Add Question</button>
+        </div>
+
+        <div class="question-list">
+          <div class="question-item">
+            <h3>
+              Question 1: Which keyword declares a variable that can be
+              reassigned?
+            </h3>
+            <p>1. const</p>
+            <p>2. let</p>
+            <p>3. static</p>
+            <p>4. define</p>
+            <p><strong>Correct answer:</strong> Option 2</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

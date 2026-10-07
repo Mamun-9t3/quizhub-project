@@ -1,127 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Take Quiz | QuizHub</title>
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-  <header class="navbar">
-    <div class="nav-inner">
-      <a class="brand" href="../index.html">QuizHub</a>
-      <nav class="nav-links">
-        <a href="dashboard.html">Student</a>
-        <a href="../admin/dashboard.html">Admin</a>
-        <a href="../login.html">Login</a>
-      </nav>
-    </div>
-  </header>
-  <main class="container">
-    <h1 id="quizTitle"></h1>
-    <p id="qCount" class="muted"></p>
-
-    <div class="quiz-card">
-      <h2 id="qText"></h2>
-      <div id="options"></div>
-      <div class="quiz-actions">
-        <button id="prevBtn" class="button secondary">Previous</button>
-        <button id="nextBtn" class="button">Next</button>
-        <button id="submitBtn" class="button danger hidden">Submit Quiz</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Take Quiz | QuizHub</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="../index.html">QuizHub</a>
+        <nav class="nav-links">
+          <a href="dashboard.html">Student</a>
+          <a href="../admin/dashboard.html">Admin</a>
+          <a href="../login.html">Login</a>
+        </nav>
       </div>
-    </div>
-  </main>
+    </header>
+    <main class="container">
+      <h1 id="quizTitle"></h1>
+      <p id="qCount" class="muted"></p>
+
+      <div class="quiz-card">
+        <h2 id="qText"></h2>
+        <div id="options"></div>
+        <div class="quiz-actions">
+          <button id="prevBtn" class="button secondary">Previous</button>
+          <button id="nextBtn" class="button">Next</button>
+          <button id="submitBtn" class="button danger hidden">
+            Submit Quiz
+          </button>
+        </div>
+      </div>
+    </main>
     <script>
-    // ---------- DATA: all quizzes live in this array ----------
-    var quizzes = [
-      {
-        id: 1,
-        title: "JavaScript Basics",
-        description: "Test your understanding of JavaScript fundamentals.",
-        questions: [
-          { question: "Which keyword declares a variable that can be reassigned?", options: ["const", "let", "static", "define"], answer: 1 },
-          { question: "Which method selects an element by its id?", options: ["getElementById", "getElement", "selectId", "findId"], answer: 0 },
-          { question: "Which symbol starts a single-line comment?", options: ["<!--", "//", "#", "/*"], answer: 1 }
-        ]
-      },
-      {
-        id: 2,
-        title: "Data Structures",
-        description: "Basic questions about common data structures.",
-        questions: [
-          { question: "Which data structure follows LIFO?", options: ["Queue", "Array", "Stack", "Graph"], answer: 2 },
-          { question: "Which structure follows FIFO?", options: ["Stack", "Queue", "Tree", "Heap"], answer: 1 },
-          { question: "A linked list node stores data and what else?", options: ["A pointer", "A CSS class", "A password", "A loop"], answer: 0 }
-        ]
-      }
-    ];
+      // ---------- DATA: all quizzes live in this array ----------
+      var quizzes = [
+        {
+          id: 1,
+          title: "JavaScript Basics",
+          description: "Test your understanding of JavaScript fundamentals.",
+          questions: [
+            {
+              question:
+                "Which keyword declares a variable that can be reassigned?",
+              options: ["const", "let", "static", "define"],
+              answer: 1,
+            },
+            {
+              question: "Which method selects an element by its id?",
+              options: ["getElementById", "getElement", "selectId", "findId"],
+              answer: 0,
+            },
+            {
+              question: "Which symbol starts a single-line comment?",
+              options: ["<!--", "//", "#", "/*"],
+              answer: 1,
+            },
+          ],
+        },
+        {
+          id: 2,
+          title: "Data Structures",
+          description: "Basic questions about common data structures.",
+          questions: [
+            {
+              question: "Which data structure follows LIFO?",
+              options: ["Queue", "Array", "Stack", "Graph"],
+              answer: 2,
+            },
+            {
+              question: "Which structure follows FIFO?",
+              options: ["Stack", "Queue", "Tree", "Heap"],
+              answer: 1,
+            },
+            {
+              question: "A linked list node stores data and what else?",
+              options: ["A pointer", "A CSS class", "A password", "A loop"],
+              answer: 0,
+            },
+          ],
+        },
+      ];
 
-    // ---------- take the quiz ----------
-    var id = Number(new URLSearchParams(window.location.search).get("id"));
-    var quiz = quizzes[id - 1];      // id 1 is at position 0
-    var current = 0;                 // which question we are on
-    var answers = [];                // answers[0] = option chosen for question 1
+      // ---------- take the quiz ----------
+      var id = Number(new URLSearchParams(window.location.search).get("id"));
+      var quiz = quizzes[id - 1]; // id 1 is at position 0
+      var current = 0; // which question we are on
+      var answers = []; // answers[0] = option chosen for question 1
 
-    document.getElementById("quizTitle").textContent = quiz.title;
+      document.getElementById("quizTitle").textContent = quiz.title;
 
-    function showQuestion() {
-      var q = quiz.questions[current];
+      function showQuestion() {
+        var q = quiz.questions[current];
 
-      document.getElementById("qCount").textContent = "Question " + (current + 1) + " of " + quiz.questions.length;
-      document.getElementById("qText").textContent = q.question;
+        document.getElementById("qCount").textContent =
+          "Question " + (current + 1) + " of " + quiz.questions.length;
+        document.getElementById("qText").textContent = q.question;
 
-      var box = document.getElementById("options");
-      box.innerHTML = "";
+        var box = document.getElementById("options");
+        box.innerHTML = "";
 
-      for (var i = 0; i < q.options.length; i++) {
-        var button = document.createElement("button");
-        button.className = "option";
-        button.textContent = q.options[i];
-        button.setAttribute("data-index", i);
+        for (var i = 0; i < q.options.length; i++) {
+          var button = document.createElement("button");
+          button.className = "option";
+          button.textContent = q.options[i];
+          button.setAttribute("data-index", i);
 
-        if (answers[current] === i) {
-          button.classList.add("selected");
+          if (answers[current] === i) {
+            button.classList.add("selected");
+          }
+          box.appendChild(button);
         }
-        box.appendChild(button);
+
+        // Previous hidden on first question, Next replaced by Submit on the last
+        document.getElementById("prevBtn").disabled = current === 0;
+        var last = current === quiz.questions.length - 1;
+        document.getElementById("nextBtn").classList.toggle("hidden", last);
+        document.getElementById("submitBtn").classList.toggle("hidden", !last);
       }
 
-      // Previous hidden on first question, Next replaced by Submit on the last
-      document.getElementById("prevBtn").disabled = (current === 0);
-      var last = (current === quiz.questions.length - 1);
-      document.getElementById("nextBtn").classList.toggle("hidden", last);
-      document.getElementById("submitBtn").classList.toggle("hidden", !last);
-    }
+      // clicking an option saves it, then redraws
+      document
+        .getElementById("options")
+        .addEventListener("click", function (event) {
+          answers[current] = Number(event.target.getAttribute("data-index"));
+          showQuestion();
+        });
 
-    // clicking an option saves it, then redraws
-    document.getElementById("options").addEventListener("click", function (event) {
-      answers[current] = Number(event.target.getAttribute("data-index"));
+      document.getElementById("prevBtn").addEventListener("click", function () {
+        current--;
+        showQuestion();
+      });
+
+      document.getElementById("nextBtn").addEventListener("click", function () {
+        current++;
+        showQuestion();
+      });
+
+      // count correct answers, then go to the result page
+      document
+        .getElementById("submitBtn")
+        .addEventListener("click", function () {
+          var score = 0;
+
+          for (var i = 0; i < quiz.questions.length; i++) {
+            if (answers[i] === quiz.questions[i].answer) {
+              score++;
+            }
+          }
+
+          window.location.href =
+            "result.html?score=" + score + "&total=" + quiz.questions.length;
+        });
+
       showQuestion();
-    });
-
-    document.getElementById("prevBtn").addEventListener("click", function () {
-      current--;
-      showQuestion();
-    });
-
-    document.getElementById("nextBtn").addEventListener("click", function () {
-      current++;
-      showQuestion();
-    });
-
-    // count correct answers, then go to the result page
-    document.getElementById("submitBtn").addEventListener("click", function () {
-      var score = 0;
-
-      for (var i = 0; i < quiz.questions.length; i++) {
-        if (answers[i] === quiz.questions[i].answer) {
-          score++;
-        }
-      }
-
-      window.location.href = "result.html?score=" + score + "&total=" + quiz.questions.length;
-    });
-
-    showQuestion();
-  </script>
-</body>
+    </script>
+  </body>
 </html>

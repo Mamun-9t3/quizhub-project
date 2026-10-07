@@ -1,43 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | QuizHub</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="navbar">
-    <div class="nav-inner">
-      <a class="brand" href="index.html">QuizHub</a>
-      <nav class="nav-links">
-        <a href="student/dashboard.html">Student</a>
-        <a href="admin/dashboard.html">Admin</a>
-        <a href="register.html">Register</a>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | QuizHub</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">QuizHub</a>
+        <nav class="nav-links">
+          <a href="student/dashboard.html">Student</a>
+          <a href="admin/dashboard.html">Admin</a>
+          <a href="register.html">Register</a>
+        </nav>
+      </div>
+    </header>
 
-  <main class="container narrow">
-    <div class="form-card">
-      <p class="eyebrow">ACCOUNT</p>
-      <h1>Sign In</h1>
-      <p class="muted">Enter your email and password to continue.</p>
+    <main class="container narrow">
+      <div class="form-card">
+        <p class="eyebrow">ACCOUNT</p>
+        <h1>Sign In</h1>
+        <p class="muted">Enter your email and password to continue.</p>
 
-      <form>
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="student@example.com">
-        <p id="emailError" class="error"></p>
+        <form>
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="student@example.com" />
+          <p id="emailError" class="error"></p>
 
-        <label for="password">Password</label>
-        <input id="password" type="password" placeholder="Enter your password">
-        <p id="passwordError" class="error"></p>
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+          />
+          <p id="passwordError" class="error"></p>
 
-        <button class="button" type="button">Sign In</button>
-      </form>
+          <button class="button" type="button">Sign In</button>
+        </form>
 
-      <p id="formMessage" class="message"></p>
-    </div>
-  </main>
-</body>
+        <p id="formMessage" class="message"></p>
+      </div>
+    </main>
+  </body>
 </html>

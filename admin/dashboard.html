@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | QuizHub</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html">QuizHub</a>
+      <nav class="nav-links">
+        <a href="../student/dashboard.html">Student</a>
+        <a href="dashboard.html">Admin</a>
+        <a href="../login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow">ADMIN PANEL</p>
+        <h1>Dashboard Overview</h1>
+        <p class="muted">Static preview of the administrator workspace.</p>
+      </div>
+      <a class="button" href="create-quiz.html">+ Create Quiz</a>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><span>Total quizzes</span><strong>12</strong></div>
+      <div class="stat-card"><span>Published</span><strong>9</strong></div>
+      <div class="stat-card"><span>Total attempts</span><strong>248</strong></div>
+      <div class="stat-card"><span>Average score</span><strong>76%</strong></div>
+    </div>
+    <div class="admin-list">
+      <div class="admin-row">
+        <div><span class="status published">Published</span><h3>JavaScript Basics</h3><p class="muted">Programming · 10 questions · 10 minutes</p></div>
+        <div class="admin-actions"><button class="button secondary" type="button">View</button><button class="button secondary" type="button">Edit</button></div>
+      </div>
+      <div class="admin-row">
+        <div><span class="status published">Published</span><h3>Data Structures</h3><p class="muted">Computer Science · 15 questions · 15 minutes</p></div>
+        <div class="admin-actions"><button class="button secondary" type="button">View</button><button class="button secondary" type="button">Edit</button></div>
+      </div>
+      <div class="admin-row">
+        <div><span class="status">Draft</span><h3>Database Management</h3><p class="muted">Database · 12 questions · 10 minutes</p></div>
+        <div class="admin-actions"><button class="button secondary" type="button">View</button><button class="button secondary" type="button">Edit</button></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
